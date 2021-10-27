@@ -8,6 +8,15 @@ var taskFormHandler = function(event) {
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
 
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        // why do we return false here? return also seems to terminate fxn
+        // not sure what returning false is doing.
+        return false;
+    }
+
+    formEl.reset();
+
     // package up data as an object
     var taskDataObj = {
         name: taskNameInput,
